@@ -1,7 +1,7 @@
 from py_expression_eval import Parser
 parser = Parser()
 
-errorCheck = lambda a,e : abs((a - e) / e)
+errorCheck = lambda a,e : abs((a - e) / a)
 
 DEV = True
 

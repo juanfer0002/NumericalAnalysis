@@ -3,7 +3,7 @@ parser = Parser()
 
 errorCheck = lambda a,e : abs((a - e) / e)
 
-DEV = False
+DEV = True
 
 def aproximateByBolzonaro(fx, a, b, stop):
     
@@ -11,7 +11,7 @@ def aproximateByBolzonaro(fx, a, b, stop):
     prev = {}
 
     while(prev.get('error') == None or prev.get('error')  >= stop):
-        mn = (a + b) / 2
+        mn = (a + b) / 2.0
         fa = fx(a)
         fmn = fx(mn)
 
@@ -35,12 +35,16 @@ def checkTypes():
 
 def init():
 
-    fx = raw_input('Enter a lineal function with a single variable(x):')
+    # fx = raw_input('Enter a lineal function with a single variable(x):')
 
-    rangeStart = float(raw_input('Enter the initial range'))
-    rangeEnd = float(raw_input('Enter the initial range'))
+    # rangeStart = float(raw_input('Enter the initial range'))
+    # rangeEnd = float(raw_input('Enter the initial range'))
 
     # errorStop = raw_input('Enter the error stop percentage')
+
+    fx = 'PI*x^3 - 9*PI*x^2 + 90'
+    rangeStart = 1
+    rangeEnd = 3
 
     expr = parser.parse(fx)
 

@@ -4,13 +4,16 @@ errorThreshold = 0.0001 # Must vary between from 0 to 1;
 
 # This is the matrix to resolve
 A = [
-    [3, -0.1, -0.2],
-    [0.1, 7, -0.3],
-    [0.3, -0.2, 10]
+    [ 4, -1,  0, -1,  0,  0],
+    [-1,  4, -1,  0, -1,  0],
+    [ 0, -1,  4,  0,  0, -1],
+    [-1,  0,  0,  4, -1,  0],
+    [ 0, -1,  0, -1,  4, -1],
+    [ 0,  0, -1,  0, -1,  4],
 ]
 
 # This is the independent matrix
-B = [7.85, -19.3, 71.4]
+B = [0, 5, 0, 6, -2, 6]
 
 
 def initXMat():
@@ -40,7 +43,7 @@ def updateSingleResultError(x):
     current = x['current']
     prev = x['prev']
 
-    if (prev):
+    if (current):
         x['error'] = calcNewError(current, prev)
     # End if
 
@@ -72,9 +75,9 @@ def printMat(it, XMat):
     for i in range(0, len(XMat)):
         x = XMat[i]
         if (x['error'] != None): 
-            stringsToPrint.append(('x%d: %f, error-x%d: %f,') % (i, x['current'], i, x['error']))
+            stringsToPrint.append(('x%d: %f, error-x%d: %f,') % (i+1, x['current'], i+1, x['error']))
         else:
-            stringsToPrint.append(('x%d: %f, error-x%d: -,') % (i, x['current'], i))
+            stringsToPrint.append(('x%d: %f, error-x%d: -,') % (i+1, x['current'], i+1))
         # End if
     # End for
 
@@ -93,12 +96,12 @@ def gaussSeidel():
             calcPosition(i, XMat)
         # End for
         
-        printMat(it, XMat) # Enable This to print every iterarion
         execute = updateAndCheckErrorForResults(XMat)
+        printMat(it, XMat) # Enable This to print every iterarion
         it += 1
     # End while
 
-    printMat(it, XMat) # This prints the last iteration
+    # printMat(it, XMat) # This prints the last iteration
     print('finish')
 # End gaussSeidel
 

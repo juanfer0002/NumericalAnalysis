@@ -75,9 +75,9 @@ def printMat(it, XMat):
     for i in range(0, len(XMat)):
         x = XMat[i]
         if (x['error'] != None): 
-            stringsToPrint.append(('x%d: %f, error-x%d: %f,') % (i+1, x['current'], i+1, x['error']))
+            stringsToPrint.append(('x%i: %.4f, error-x%i: %.2f,') % (i+1, x['current'], i+1, x['error']))
         else:
-            stringsToPrint.append(('x%d: %f, error-x%d: -,') % (i+1, x['current'], i+1))
+            stringsToPrint.append(('x%i: %.4f, error-x%i: -,') % (i+1, x['current'], i+1))
         # End if
     # End for
 

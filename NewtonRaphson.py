@@ -18,9 +18,9 @@ def doNewtonRaphson(x):
 
 def printIteration(i, current):
     if (current['error'] != None):
-        print(('i: %f, x: %f, error: %f') % (i, current['x'], current['error']))
+        print(('i: %i, x: %.4f, error: %.2f') % (i, current['x'], current['error']))
     else: 
-        print(('i: %f, x: %f, error: -') % (i, current['x']))
+        print(('i: %i, x: %.4f, error: -') % (i, current['x']))
 
     # End if
 # End printIteration

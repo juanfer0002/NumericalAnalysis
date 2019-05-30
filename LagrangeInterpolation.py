@@ -1,8 +1,5 @@
-
 X_POINTS = [2, 2.5, 3.2, 4]
 FX_POINTS = [8, 14, 15, 8]
-
-
 
 def printFunction(L):
     fx = ''
@@ -13,7 +10,6 @@ def printFunction(L):
     fx = fx[0:len(fx)-2]
     print(('f(x): %s') % (fx))
 # End def
-
 
 def getFraction(i):
 
@@ -44,6 +40,5 @@ def init():
 
 
 # End init
-
 
 init()

@@ -5,7 +5,7 @@ def printFunction(L):
     fx = ''
     for l in L:
         fx += ('%s + ') % l
-    # End for        
+    # End for
 
     fx = fx[0:len(fx)-2]
     print(('f(x): %s') % (fx))
@@ -22,7 +22,6 @@ def getFraction(i):
         if (i != j):
             numerator += ('(x - %.2f)') % (X_POINTS[j]) 
             denominator *= (currentX - X_POINTS[j])
-
         # End if
     # End for
 

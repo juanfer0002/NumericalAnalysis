@@ -17,7 +17,8 @@ def aproximateByBolzonaro(fx, a, b, stop):
 
         error = errorCheck(mn, prev.get('mn')) if prev.get('mn') else None
         prev = {'i': i, 'a': a, 'b': b, 'mn': mn, 'fa': fa, 'fmn': fmn, 'error': error}
-        if DEV : print(prev)
+        
+        printIteration(prev)
 
         if (fa * fmn < 0):
             b = mn
@@ -28,6 +29,16 @@ def aproximateByBolzonaro(fx, a, b, stop):
         i += 1
     # End while
 # End aproximateByBolzonaro
+
+def printIteration(it):
+    if (it['error']):
+        str_format = 'i: %i, a: %.4f, b: %.4f, mn: %.4f, fa: %.4f, fmn: %.4f, error: %.2f'
+        print(str_format % (it['i'], it['a'], it['b'], it['mn'], it['fa'], it['fmn'], it['error']))
+    else:
+        str_format = 'i: %i, a: %.4f, b: %.4f, mn: %.4f, fa: %.4f, fmn: %.4f, error: ---'
+        print(str_format % (it['i'], it['a'], it['b'], it['mn'], it['fa'], it['fmn']))
+    # End if
+# End printIteration
 
 def checkTypes():
     print('wait!')

@@ -5,7 +5,13 @@ FX_POINTS = [8, 14, 15, 8]
 
 
 def printFunction(L):
-    print(L)
+    fx = ''
+    for l in L:
+        fx += ('%s + ') % l
+    # End for        
+
+    fx = fx[0:len(fx)-2]
+    print(('f(x): %s') % (fx))
 # End def
 
 
